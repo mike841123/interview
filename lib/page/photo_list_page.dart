@@ -24,8 +24,8 @@ class _PhotoListPageState extends State<PhotoListPage> {
   @override
   void initState() {
     super.initState();
-    _scrollController.addListener(_scrollListener);  // 監聽滾動
-    _getPhotosList(); 
+    _scrollController.addListener(_scrollListener); // 監聽滾動
+    _getPhotosList();
   }
 
   @override
