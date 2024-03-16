@@ -35,9 +35,9 @@ class _PhotoListPageState extends State<PhotoListPage> {
   }
 
   void _scrollListener() {
-    /// 當nextPageToken為空時代表沒下一頁
+    /// 當滾到底部時再取100筆
     if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent && !isLoading && nextPageToken.isNotEmpty) {
-      _getPhotosList();
+      _getPhotosList(); // 如果nextPageToken為空時代表沒下一頁 就不用再取
     }
   }
 
@@ -59,7 +59,7 @@ class _PhotoListPageState extends State<PhotoListPage> {
     return generateFakePhotoResponse(pageSize);
   }
 
-  /// 假資料生成
+  /// 模擬假資料
   PhotoResponse generateFakePhotoResponse(int pageSize) {
     return PhotoResponse(
       mediaItems: List.generate(pageSize, (index) {
